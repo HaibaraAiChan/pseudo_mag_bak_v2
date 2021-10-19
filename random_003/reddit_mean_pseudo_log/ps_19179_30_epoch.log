@@ -1,0 +1,250 @@
+main start at this time 1634613441.8787713
+#nodes: 232965
+#edges: 114615892
+#classes: 41
+Epoch 0
+
+----main run function: block dataloader generation total spend   3.130542039871216
+
+current Epoch training on CPU without block data loder Time(s): 2.0193
+		data from CPU to GPU time:1.15794896 s
+		avg iteration GPU training time:0.81295803 s
+		current epoch total CPU time without optimizer step:2.01464534 s
+Epoch 1
+
+----main run function: block dataloader generation total spend   3.4906270503997803
+
+current Epoch training on CPU without block data loder Time(s): 0.8858
+		data from CPU to GPU time:0.74663027 s
+		avg iteration GPU training time:0.10595389 s
+		current epoch total CPU time without optimizer step:0.88113809 s
+Epoch 2
+
+----main run function: block dataloader generation total spend   3.4143991470336914
+
+current Epoch training on CPU without block data loder Time(s): 0.8657
+		data from CPU to GPU time:0.73081347 s
+		avg iteration GPU training time:0.10534899 s
+		current epoch total CPU time without optimizer step:0.86101913 s
+Epoch 3
+
+----main run function: block dataloader generation total spend   3.3787970542907715
+
+current Epoch training on CPU without block data loder Time(s): 0.8463
+		data from CPU to GPU time:0.71056735 s
+		avg iteration GPU training time:0.10747654 s
+		current epoch total CPU time without optimizer step:0.84166002 s
+Epoch 4
+
+----main run function: block dataloader generation total spend   3.0748744010925293
+
+current Epoch training on CPU without block data loder Time(s): 0.7680
+		data from CPU to GPU time:0.63897134 s
+		avg iteration GPU training time:0.10177818 s
+		current epoch total CPU time without optimizer step:0.76348019 s
+Epoch 5
+
+----main run function: block dataloader generation total spend   3.3717494010925293
+
+current Epoch training on CPU without block data loder Time(s): 0.8519
+		data from CPU to GPU time:0.69980428 s
+		avg iteration GPU training time:0.11496176 s
+		current epoch total CPU time without optimizer step:0.84658623 s
+Epoch 6
+
+----main run function: block dataloader generation total spend   3.2837958335876465
+
+current Epoch training on CPU without block data loder Time(s): 0.8375
+		data from CPU to GPU time:0.70009537 s
+		avg iteration GPU training time:0.10806576 s
+		current epoch total CPU time without optimizer step:0.83234239 s
+Epoch 7
+
+----main run function: block dataloader generation total spend   3.0162482261657715
+
+current Epoch training on CPU without block data loder Time(s): 0.8504
+		data from CPU to GPU time:0.70599274 s
+		avg iteration GPU training time:0.10811610 s
+		current epoch total CPU time without optimizer step:0.84545660 s
+Epoch 8
+
+----main run function: block dataloader generation total spend   3.2501237392425537
+
+current Epoch training on CPU without block data loder Time(s): 0.8492
+		data from CPU to GPU time:0.70813116 s
+		avg iteration GPU training time:0.10589667 s
+		current epoch total CPU time without optimizer step:0.84391809 s
+Epoch 9
+
+----main run function: block dataloader generation total spend   3.2046573162078857
+
+current Epoch training on CPU without block data loder Time(s): 0.8214
+		data from CPU to GPU time:0.68234692 s
+		avg iteration GPU training time:0.10926771 s
+		current epoch total CPU time without optimizer step:0.81681442 s
+Epoch 10
+
+----main run function: block dataloader generation total spend   2.938232660293579
+
+current Epoch training on CPU without block data loder Time(s): 0.8246
+		data from CPU to GPU time:0.68306921 s
+		avg iteration GPU training time:0.10666822 s
+		current epoch total CPU time without optimizer step:0.81955385 s
+Epoch 11
+
+----main run function: block dataloader generation total spend   3.264756441116333
+
+current Epoch training on CPU without block data loder Time(s): 0.8177
+		data from CPU to GPU time:0.68053581 s
+		avg iteration GPU training time:0.10843427 s
+		current epoch total CPU time without optimizer step:0.81305003 s
+Epoch 12
+
+----main run function: block dataloader generation total spend   2.984787940979004
+
+current Epoch training on CPU without block data loder Time(s): 0.7699
+		data from CPU to GPU time:0.63277603 s
+		avg iteration GPU training time:0.10506899 s
+		current epoch total CPU time without optimizer step:0.76536369 s
+Epoch 13
+
+----main run function: block dataloader generation total spend   3.221874952316284
+
+current Epoch training on CPU without block data loder Time(s): 0.8236
+		data from CPU to GPU time:0.68298768 s
+		avg iteration GPU training time:0.11046656 s
+		current epoch total CPU time without optimizer step:0.81890798 s
+Epoch 14
+
+----main run function: block dataloader generation total spend   3.157301425933838
+
+current Epoch training on CPU without block data loder Time(s): 0.8138
+		data from CPU to GPU time:0.67215903 s
+		avg iteration GPU training time:0.10890678 s
+		current epoch total CPU time without optimizer step:0.80593395 s
+Epoch 15
+
+----main run function: block dataloader generation total spend   3.1854496002197266
+
+current Epoch training on CPU without block data loder Time(s): 0.8810
+		data from CPU to GPU time:0.73924500 s
+		avg iteration GPU training time:0.10947322 s
+		current epoch total CPU time without optimizer step:0.87580729 s
+Epoch 16
+
+----main run function: block dataloader generation total spend   3.1945388317108154
+
+current Epoch training on CPU without block data loder Time(s): 0.8903
+		data from CPU to GPU time:0.73799990 s
+		avg iteration GPU training time:0.11098125 s
+		current epoch total CPU time without optimizer step:0.88526344 s
+Epoch 17
+
+----main run function: block dataloader generation total spend   3.023320436477661
+
+current Epoch training on CPU without block data loder Time(s): 0.8142
+		data from CPU to GPU time:0.67120338 s
+		avg iteration GPU training time:0.11134275 s
+		current epoch total CPU time without optimizer step:0.80937123 s
+Epoch 18
+
+----main run function: block dataloader generation total spend   3.2360990047454834
+
+current Epoch training on CPU without block data loder Time(s): 0.9142
+		data from CPU to GPU time:0.76621501 s
+		avg iteration GPU training time:0.11163786 s
+		current epoch total CPU time without optimizer step:0.90725565 s
+Epoch 19
+
+----main run function: block dataloader generation total spend   3.006211519241333
+
+current Epoch training on CPU without block data loder Time(s): 0.8122
+		data from CPU to GPU time:0.67558520 s
+		avg iteration GPU training time:0.10333491 s
+		current epoch total CPU time without optimizer step:0.80769563 s
+Epoch 20
+
+----main run function: block dataloader generation total spend   3.3220114707946777
+
+current Epoch training on CPU without block data loder Time(s): 0.8648
+		data from CPU to GPU time:0.72411530 s
+		avg iteration GPU training time:0.10731520 s
+		current epoch total CPU time without optimizer step:0.85953522 s
+Epoch 21
+
+----main run function: block dataloader generation total spend   3.3419406414031982
+
+current Epoch training on CPU without block data loder Time(s): 0.8382
+		data from CPU to GPU time:0.69919543 s
+		avg iteration GPU training time:0.10789408 s
+		current epoch total CPU time without optimizer step:0.83339715 s
+Epoch 22
+
+----main run function: block dataloader generation total spend   3.207256317138672
+
+current Epoch training on CPU without block data loder Time(s): 0.7754
+		data from CPU to GPU time:0.63323049 s
+		avg iteration GPU training time:0.10717990 s
+		current epoch total CPU time without optimizer step:0.77071071 s
+Epoch 23
+
+----main run function: block dataloader generation total spend   3.1313703060150146
+
+current Epoch training on CPU without block data loder Time(s): 0.7936
+		data from CPU to GPU time:0.65486951 s
+		avg iteration GPU training time:0.10743846 s
+		current epoch total CPU time without optimizer step:0.78899527 s
+Epoch 24
+
+----main run function: block dataloader generation total spend   3.2576100826263428
+
+current Epoch training on CPU without block data loder Time(s): 0.8199
+		data from CPU to GPU time:0.68316502 s
+		avg iteration GPU training time:0.10673149 s
+		current epoch total CPU time without optimizer step:0.81520820 s
+Epoch 25
+
+----main run function: block dataloader generation total spend   3.3040008544921875
+
+current Epoch training on CPU without block data loder Time(s): 0.8179
+		data from CPU to GPU time:0.67798228 s
+		avg iteration GPU training time:0.10620899 s
+		current epoch total CPU time without optimizer step:0.81323314 s
+Epoch 26
+
+----main run function: block dataloader generation total spend   3.1504881381988525
+
+current Epoch training on CPU without block data loder Time(s): 0.7809
+		data from CPU to GPU time:0.64572749 s
+		avg iteration GPU training time:0.10478256 s
+		current epoch total CPU time without optimizer step:0.77629828 s
+Epoch 27
+
+----main run function: block dataloader generation total spend   3.1748857498168945
+
+current Epoch training on CPU without block data loder Time(s): 0.9171
+		data from CPU to GPU time:0.77734144 s
+		avg iteration GPU training time:0.10733235 s
+		current epoch total CPU time without optimizer step:0.91210485 s
+Epoch 28
+
+----main run function: block dataloader generation total spend   3.3457422256469727
+
+current Epoch training on CPU without block data loder Time(s): 0.7590
+		data from CPU to GPU time:0.62300304 s
+		avg iteration GPU training time:0.10225203 s
+		current epoch total CPU time without optimizer step:0.75413609 s
+Epoch 29
+
+----main run function: block dataloader generation total spend   3.055201292037964
+
+current Epoch training on CPU without block data loder Time(s): 0.7777
+		data from CPU to GPU time:0.64051184 s
+		avg iteration GPU training time:0.10665318 s
+		current epoch total CPU time without optimizer step:0.77301025 s
+
+--------------------total avg epoch training  total cpu time:0.82844742 s
+	total avg iteration(step) data from cpu to GPU time:0.68848717 s
+	total avg iteration GPU training time:0.10753624 s
+	total avg iteration (step) total cpu time:0.82343246 s
+	avg epoch nodes src :875563.70000000 s

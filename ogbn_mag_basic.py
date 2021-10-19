@@ -11,6 +11,7 @@ import torch.nn.functional as F
 from load_graph import load_mag
 from graphsage_model import SAGE
 from statistics import mean
+from load_graph import load_reddit, inductive_split, load_ogb, load_cora, load_karate, prepare_data, 
 
 
 
@@ -381,7 +382,44 @@ def run(args, data, device):
 
 
 def main(args):
-    
+    device = "cpu"
+	if args.dataset=='karate':
+		g, n_classes = load_karate()
+		print('#nodes:', g.number_of_nodes())
+		print('#edges:', g.number_of_edges())
+		print('#classes:', n_classes)
+		device = "cuda:0"
+		data=prepare_data(g, n_classes, args, device)
+	elif args.dataset=='cora':
+		g, n_classes = load_cora()
+		device = "cuda:0"
+		data=prepare_data(g, n_classes, args, device)
+	elif args.dataset=='reddit':
+		g, n_classes = load_reddit()
+		device = "cuda:0"
+		data=prepare_data(g, n_classes, args, device)
+		print('#nodes:', g.number_of_nodes())
+		print('#edges:', g.number_of_edges())
+		print('#classes:', n_classes)
+	elif args.dataset=='ogbn-products':
+		g, n_classes = load_ogb(args.dataset)
+		# print('#nodes:', g.number_of_nodes())
+		# print('#edges:', g.number_of_edges())
+		# print('#classes:', n_classes)
+		device = "cuda:0"
+		data=prepare_data(g, n_classes, args, device)
+	elif args.dataset=='ogbn-mag':
+		device = "cpu"
+        data = prepare_data(device, args)
+        device = "cuda:0"
+        data = pre_process(args, data, device)
+		
+	else:
+		raise Exception('unknown dataset')
+	
+	best_test = run(args, device, data)
+
+
     if args.gpu < 0:
         device = "cpu"
     else:

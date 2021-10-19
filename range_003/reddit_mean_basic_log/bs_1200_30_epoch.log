@@ -1,0 +1,3 @@
+main start at this time 1634617418.1826746
+Namespace(R=5, aggre='mean', batch_size=1200, data_cpu=False, dataset='reddit', dropout=0.5, eval_batch_size=100000, eval_every=5, fan_out='10', gpu=0, inductive=False, log_every=5, lr=0.003, num_epochs=30, num_hidden=16, num_layers=1, num_workers=4, seed=1236, selection_method='range', weight_decay=0)
+load reddit

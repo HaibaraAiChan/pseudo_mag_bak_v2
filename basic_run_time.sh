@@ -1,17 +1,17 @@
 #!/bin/bash
 
 ####################### ogbn-mag dataset
-File=ogbn_mag_basic.py
-Data=ogbn-mag
-Aggre=lstm
-batch_size=(157393 78697 39349 19675 9838 4949)
+# File=ogbn_mag_basic.py
+# Data=ogbn-mag
+# Aggre=lstm
+# batch_size=(157393 78697 39349 19675 9838 4949)
 
 
 ####################### reddit dataset 
-# File=pseudo_ogbn_mag.py
-# Data=reddit
-# Aggre=mean
-# batch_size=(153431 76716 38358 19179 9590 4795 2400 1200)
+File=ogbn_mag_basic.py
+Data=reddit
+Aggre=mean
+batch_size=(153431 76716 38358 19179 9590 4795 2400 1200)
 
 lr=003
 # runs=2
