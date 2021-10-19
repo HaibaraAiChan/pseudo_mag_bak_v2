@@ -96,21 +96,23 @@ def load_blocks_subtensor(g, feats, labels, blocks, device):
 	"""
 	Extracts features and labels for a subset of nodes
 	"""
-	# print('\nblocks[0].srcdata dgl.NID list')
-	# print(blocks[0].srcdata[dgl.NID].tolist())
+	
 	batch_inputs = feats[0][blocks[0].srcdata[dgl.NID].tolist()].to(device)
 	# print('blocks[-1].dstdata')
 	# print(blocks[-1].dstdata['_ID'])
 	# print('---------------------------------------------------------------------------------------------------')
 	batch_labels = labels[blocks[-1].dstdata['_ID']].to(device)
 	# print('\nblocks[-1].dstdata')
-	# print(blocks[-1].dstdata[dgl.NID])
+	# print(len(blocks[-1].dstdata[dgl.NID].tolist()))
+	# print('\nblocks[-1].srcdata dgl.NID list')
+	# print(len(blocks[-1].srcdata[dgl.NID].tolist()))
 	# print(blocks[-1].srcdata[dgl.NID])
-	# print()
+	# print('batch input')
+	# print(len(batch_inputs.tolist()))
    
 	# print('batch_inputs device')
 	# print(batch_inputs.device)
-	return batch_inputs, batch_labels
+	return batch_inputs, batch_labels, len(blocks[-1].srcdata[dgl.NID].tolist())
 
 
 def compute_acc(pred, labels):
@@ -135,6 +137,9 @@ def train(model, train_g, feats, train_labels, loss_fcn, optimizer, train_loader
     step_data_trans_time_list = []
     step_GPU_train_time_list = []
 
+    total_nodes=[]
+    total_edges=[]
+
     start = torch.cuda.Event(enable_timing=True)
     end = torch.cuda.Event(enable_timing=True)
     t____ = time.time()
@@ -145,12 +150,14 @@ def train(model, train_g, feats, train_labels, loss_fcn, optimizer, train_loader
         torch.cuda.synchronize()
         start.record()
         #---------------------------------------------------------------------------------------------$$$$$$$$
-        batch_inputs, batch_labels = load_blocks_subtensor(train_g, feats, train_labels, blocks, device)
+        batch_inputs, batch_labels, num_src_nodes = load_blocks_subtensor(train_g, feats, train_labels, blocks, device)
         blocks = [block.int().to(device) for block in blocks]
         #---------------------------------------------------------------------------------------------#######
         end.record()
         torch.cuda.synchronize()  # wait for move to complete
         step_data_trans_time_list.append(start.elapsed_time(end))
+
+        total_nodes.append(num_src_nodes)
 
         #----------------------------------------------------------
         start1 = torch.cuda.Event(enable_timing=True)
@@ -173,6 +180,7 @@ def train(model, train_g, feats, train_labels, loss_fcn, optimizer, train_loader
         total_train_time.append(time_4_current_batch)
 
     totoal_time = time.time()-t____   
+    print("train nodes number of this epoch ", sum(total_nodes))
         # acc = compute_acc(batch_pred, batch_labels)
 
         # gpu_mem_alloc = torch.cuda.max_memory_allocated() / 1024 / 1024 /1024 if torch.cuda.is_available() else 0
@@ -194,7 +202,8 @@ def train(model, train_g, feats, train_labels, loss_fcn, optimizer, train_loader
     # print('total time of current train function CPU',sum(total_train_time))
     
 
-    return totoal_time, sum(total_train_time), sum(step_data_trans_time_list), sum(step_GPU_train_time_list) 
+    # return totoal_time, sum(total_train_time), sum(step_data_trans_time_list), sum(step_GPU_train_time_list) 
+    return totoal_time, sum(total_train_time), sum(step_data_trans_time_list), sum(step_GPU_train_time_list) , sum(total_nodes)
 
 
 
@@ -324,13 +333,17 @@ def run(args, data, device):
     avg_step_GPU_train_time_list = []
     avg_step_time_list = []
 
+    nodes_epoch=[]
+
     ttt = []
     for epoch in range(1, args.num_epochs + 1):
         print('-'*80+'start epoch ', epoch)
         start = time.time()
+        # t___, t0, t1, t2= train(model, train_g, feats, train_labels, loss_fcn, optimizer, full_batch_train_dataloader)
         
-        t___, t0, t1, t2= train(model, train_g, feats, train_labels, loss_fcn, optimizer, full_batch_train_dataloader)
+        t___, t0, t1, t2, nodes_num= train(model, train_g, feats, train_labels, loss_fcn, optimizer, full_batch_train_dataloader)
         time_list.append(time.time()-start)
+        nodes_epoch.append(nodes_num)
         ttt.append(t___)
         avg_step_time_list.append(t0)
         avg_step_data_trans_time_list.append(t1)
@@ -348,6 +361,10 @@ def run(args, data, device):
 
     total_avg_epoch_time = sum(ttt[out_indent:]) / len(ttt[out_indent:])
     print('\ttotal avg epoch total CPU time including train loader :%.8f s' % (total_avg_epoch_time ))
+
+
+    avg_epoch_nodes = sum(nodes_epoch) / len(nodes_epoch)
+    print('\tavg epoch nodes input :%.8f s' % (avg_epoch_nodes ))
 
         
     print('-'*80+'end training')
@@ -420,11 +437,11 @@ if __name__ == "__main__":
     argparser.add_argument('--fan-out', type=str, default='10')
 
     # argparser.add_argument('--batch-size', type=int, default=157393)
-    # argparser.add_argument('--batch-size', type=int, default=78697)
+    argparser.add_argument('--batch-size', type=int, default=78697)
     # argparser.add_argument('--batch-size', type=int, default=39349)
     # argparser.add_argument('--batch-size', type=int, default=19675)
     # argparser.add_argument('--batch-size', type=int, default=9838)
-    argparser.add_argument('--batch-size', type=int, default=4919)
+    # argparser.add_argument('--batch-size', type=int, default=4919)
 
 
 

@@ -35,7 +35,7 @@ for i in ${batch_size[@]};do
   --selection-method range \
   --batch-size $i \
   --num-epochs $epochs \
-  --eval-every 5 > range_${lr}/${Data}_${Aggre}_pseudo_log/bs_${i}_30_epoch.log
+  --eval-every 5 > range_${lr}/${Data}_${Aggre}_pseudo_log/ps_${i}_30_epoch.log
 # done
 # for i in ${batch_size[@]};do
   python $File \
@@ -44,33 +44,33 @@ for i in ${batch_size[@]};do
   --selection-method random \
   --batch-size $i \
   --num-epochs $epochs \
-  --eval-every 5 > random_${lr}/${Data}_${Aggre}_pseudo_log/bs_${i}_30_epoch.log
+  --eval-every 5 > random_${lr}/${Data}_${Aggre}_pseudo_log/ps_${i}_30_epoch.log
 done
 
+# File=ogbn_mag_basic.py
+# cd range_${lr} 
+# mkdir ${Data}_${Aggre}_basic_log/
+# cd ../random_${lr}
+# mkdir ${Data}_${Aggre}_basic_log/
+# cd ..
 
-cd range_${lr} 
-mkdir ${Data}_${Aggre}_basic_log/
-cd ../random_${lr}
-mkdir ${Data}_${Aggre}_basic_log/
-cd ..
 
-
-for i in ${batch_size[@]};do
-  python $File \
-  --dataset $Data \
-  --aggre $Aggre \
-  --selection-method range \
-  --batch-size $i \
-  --num-epochs $epochs \
-  --eval-every 5 > range_${lr}/${Data}_${Aggre}_basic_log/bs_${i}_30_epoch.log
-# done
 # for i in ${batch_size[@]};do
-  python $File \
-  --dataset $Data \
-  --aggre $Aggre \
-  --selection-method random \
-  --batch-size $i \
-  --num-epochs $epochs \
-  --eval-every 5 > random_${lr}/${Data}_${Aggre}_basic_log/bs_${i}_30_epoch.log
-done
+#   python $File \
+#   --dataset $Data \
+#   --aggre $Aggre \
+#   --selection-method range \
+#   --batch-size $i \
+#   --num-epochs $epochs \
+#   --eval-every 5 > range_${lr}/${Data}_${Aggre}_basic_log/bs_${i}_30_epoch.log
+# # done
+# # for i in ${batch_size[@]};do
+#   python $File \
+#   --dataset $Data \
+#   --aggre $Aggre \
+#   --selection-method random \
+#   --batch-size $i \
+#   --num-epochs $epochs \
+#   --eval-every 5 > random_${lr}/${Data}_${Aggre}_basic_log/bs_${i}_30_epoch.log
+# done
 

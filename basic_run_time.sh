@@ -15,7 +15,7 @@ batch_size=(157393 78697 39349 19675 9838 4949)
 
 lr=003
 # runs=2
-epochs=6
+epochs=30
 
 mkdir range_${lr}
 mkdir random_${lr}
@@ -35,7 +35,7 @@ for i in ${batch_size[@]};do
   --selection-method range \
   --batch-size $i \
   --num-epochs $epochs \
-  --eval-every 5 > range_${lr}/${Data}_${Aggre}_basic_log/bs_${i}_6_epoch.log
+  --eval-every 5 > range_${lr}/${Data}_${Aggre}_basic_log/bs_${i}_30_epoch.log
 # done
 # for i in ${batch_size[@]};do
   python $File \
@@ -44,7 +44,7 @@ for i in ${batch_size[@]};do
   --selection-method random \
   --batch-size $i \
   --num-epochs $epochs \
-  --eval-every 5 > random_${lr}/${Data}_${Aggre}_basic_log/bs_${i}_6_epoch.log
+  --eval-every 5 > random_${lr}/${Data}_${Aggre}_basic_log/bs_${i}_30_epoch.log
 done
 
 

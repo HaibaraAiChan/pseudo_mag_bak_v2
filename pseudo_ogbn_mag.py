@@ -155,11 +155,13 @@ def run(args, device, data):
 	blocks_generation_time_list=[]
 	mean_per_block_generation_time_list=[]
 	batch_list_generate_time_list=[]
+	nodes_collection =[]
 
 	for epoch in range(args.num_epochs):
 		print('Epoch ' + str(epoch))		
 		# data loader sampling fan-out neighbor each new epoch
 		for full_batch_step, (input_nodes, output_seeds, full_batch_blocks) in enumerate(full_batch_dataloader):
+			
 			
 			ssss_time = time.time()
 			block_dataloader, weights_list,time_collection = generate_dataloader(train_g, full_batch_blocks,  args)
@@ -207,6 +209,8 @@ def run(args, device, data):
 				end.record()
 				torch.cuda.synchronize()  # wait for move to complete
 				step_data_trans_time_list.append(start.elapsed_time(end))
+
+				nodes_collection.append(len(input_node.tolist()))
 				#----------------------------------------------------------------------------------------
 				start1 = torch.cuda.Event(enable_timing=True)
 				end1 = torch.cuda.Event(enable_timing=True)
@@ -279,6 +283,10 @@ def run(args, device, data):
 	print('\ttotal avg iteration GPU training time:%.8f s' % (total_avg_iteration_gpu_time/1000))
 	total_avg_step_time = sum(t_step_time_list[out_indent:]) / len(t_step_time_list[out_indent:])
 	print('\ttotal avg iteration (step) total cpu time:%.8f s' % (total_avg_step_time ))
+
+
+	avg_epoch_nodes = sum(nodes_collection) / args.num_epochs
+	print('\tavg epoch nodes src :%.8f s' % (avg_epoch_nodes ))
 
 	# print("\navg time for data loader generation " + str(mean(total_generate_time_list)))
 	# print("\nbatch NID list generation time  " + str(mean(batch_list_generate_time_list)))
@@ -358,8 +366,8 @@ if __name__=='__main__':
 	argparser.add_argument('--fan-out', type=str, default='10')
 
 
-	argparser.add_argument('--batch-size', type=int, default=157393)
-	# argparser.add_argument('--batch-size', type=int, default=78697)
+	# argparser.add_argument('--batch-size', type=int, default=157393)
+	argparser.add_argument('--batch-size', type=int, default=78697)
 	# argparser.add_argument('--batch-size', type=int, default=39349)
 	# argparser.add_argument('--batch-size', type=int, default=19675)
 	# argparser.add_argument('--batch-size', type=int, default=9838)
